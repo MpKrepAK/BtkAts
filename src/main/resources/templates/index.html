@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <h1>БТК АТС данные о звонках</h1>
+</div>
+<div class="main_grid">
+    <div class="search">
+
+    </div>
+    <div class="data_container">
+        <div class="data_item" th:each="item : ${dto}">
+            <div class="item_up">
+                <div th:text="${item.id}"></div>
+                <div th:text="${item.caller}"></div>
+                <div th:text="${item.receiver}"></div>
+                <div th:text="${item.duration}"></div>
+                <div th:text="${item.date}"></div>
+            </div>
+
+            <div class="item_down">
+                <audio th:id="'audio-player-' + ${item.id}" controls>
+                    <source th:src="@{/play(id=${item.id})}" type="audio/wav">
+                </audio>
+                <a th:href="@{/play(id=${item.id})}" style="display:none;">Слушать запись</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+        <span th:if="${currentPage > 0}">
+            <a th:href="@{/index(page=${currentPage - 1}, size=${size})}">Предыдущая</a>
+        </span>
+
+    <span>Страница <span th:text="${currentPage + 1}"></span> из <span th:text="${totalPages}"></span></span>
+
+    <span th:if="${currentPage + 1 < totalPages}">
+            <a th:href="@{/index(page=${currentPage + 1})}">Следующая</a>
+        </span>
+</div>
+
+</body>
+</html>

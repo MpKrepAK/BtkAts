@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Форма для фильтрации данных</title>
+</head>
+<body>
+<h1>Форма для фильтрации данных</h1>
+<form th:action="@{/charts}" method="get">
+  <label for="startDate">Начальная дата:</label>
+  <input type="date" id="startDate" name="startDate" required/>
+
+  <label for="endDate">Конечная дата:</label>
+  <input type="date" id="endDate" name="endDate" required/>
+
+  <label for="receiver">Получатель:</label>
+  <input type="text" id="receiver" name="receiver" required/>
+
+  <label for="groupBy">Группировка по:</label>
+  <select id="groupBy" name="groupBy">
+    <option value="day">День</option>
+    <option value="hour">Час</option>
+    <option value="month">Месяц</option>
+  </select>
+
+  <button type="submit">Показать данные</button>
+</form>
+</body>
+</html>

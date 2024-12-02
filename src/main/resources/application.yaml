@@ -1,0 +1,26 @@
+server:
+  port: 7000
+spring:
+  application:
+    name : BtkAtsServer
+
+  datasource:
+    username: toor
+    password: toor
+    url: jdbc:mysql://192.168.16.110:3306/btk_ats
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+
+settings:
+  url : "https://pbx.beltelecom.by/api/records"
+  login_url : "https://pbx.beltelecom.by/api/login"
+  request_body : '{"first": #first, "rows": #count, "sortField": "recordDate", "sortOrder": "-1", "filters": {}, "globalFilter": null}'
+  download_path : '\\192.168.16.110\downloads\'
+  add_permission : 'cmdkey /add:192.168.16.110 /user:Администратор /pass:adminFile123'
+  login_data:
+    username: ''
+    password: ''
+    pbxId: ''

@@ -1,0 +1,34 @@
+.main_grid{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+
+
+.data_container{
+    display: grid;
+}
+
+.data_item{
+    display: grid;
+    padding: 10px;
+}
+
+.item_up{
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+}
+.item_down{
+    display: grid;
+}
+audio{
+    display: grid;
+    width: 100%;
+}
+
+.data_item:nth-child(odd) {
+    background: #e3e3e3;
+}
+.data_item:nth-child(even) {
+    background: #ebebeb;
+}
